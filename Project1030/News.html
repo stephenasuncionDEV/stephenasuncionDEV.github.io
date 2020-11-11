@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>News | City of Vancouver</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="Images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="main.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	</head>
+		
+	<body>
+        <div id="wrapper">
+		    <header>
+                <a href="index.html"><img src="Images/web_Logo.png" id="logo" alt="logo"></a>
+                <input type="text" id="search" name="search" value="Search">
+		    </header>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="News.html" style="border-bottom: 3px solid #008cff;">News</a></li>
+                    <li><a href="Events.html">Events</a></li>
+                    <li><a href="ThingsToDo.html">Things to Do</a></li>
+                    <li><a href="BusinessEconomy.html">Business and Economy</a></li>
+                    <li><a href="LawAndSafety.html">Law and Safety</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>       
+            </nav>
+
+		    <main>
+                <div class="site_Title">
+                    <h1>News</h1>
+                    <div class="site_Index">
+                        <div class="site_Box" style="background-color: red;"></div>
+                        <p class="site_Label">Crime</p>
+                    </div>
+                    <div class="site_Index">
+                        <div class="site_Box" style="background-color: rgb(0, 132, 255);"></div>
+                        <p class="site_Label">Medical</p>
+                    </div>
+                    <div class="site_Index">
+                        <div class="site_Box" style="background-color: rgb(24, 185, 91);"></div>
+                        <p class="site_Label">Sports</p>
+                    </div>
+                    <div class="site_Index">
+                        <div class="site_Box" style="background-color: rgb(77, 77, 77);"></div>
+                        <p class="site_Label">Other/General</p>
+                    </div>
+                </div>
+
+                <div id="announcement_Bar">
+                    <h1 id="announcement_Title">Announcement: </h1>
+                    <p id="announcement_Text">New website design was implemented. Please check our contact page to submit any issues.</p>
+                    <h3 id="announcement_Close" onclick="closeAnnouncement()">X</h3>
+                </div>
+
+                <div id="first_Container">
+                    <div id="second_Container">
+                        
+                        <div class="main_Bar">
+                            <h1 class="main_Title">Recent News</h1>
+                        </div>
+
+                        <a href="News.html">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image1.jpg" alt="Skating" style="border-left: 5px solid rgb(24, 185, 91);">
+                                    <h3 class="news_Header">Ice rinks Re-open</h3>
+                                    <p class="news_Description">Get ready and get your skating boots on. Ice rinks are finally coming back and re-opening in Vancouver. Dont miss out and enjoy skating with your friends.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div> 
+                            </div>
+                        </a>
+
+                        <a href="News.html">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image2.jpg" alt="COVID-19">
+                                    <h3 class="news_Header">B.C. Covid-19 New Restriction</h3>
+                                    <p class="news_Description">A new covid Restriction has been put to place starting November 7, 2020 at 10:00 pm. People are not allowed to go to any social gathering. You are not allowed to be with someone that is not immediate family until November 23, 2020 at 12:00 pm.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="News.html">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image3.jpg" alt="COVID-19">
+                                    <h3 class="news_Header">B.C. health officials confirm 567 COVID-19 cases</h3>
+                                    <p class="news_Description">Over the weekend B.C. Health officials confirmed another 567 COVID-19 cases over the weekend. As a result, a new restricion has been put to place.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="main_Bar" style="margin-top: 22px;">
+                            <h1 class="main_Title">All News</h1>
+                        </div>
+                        
+                        <a href="News.html" target="_blank">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image4.jpg" alt="Sports" style="border-left: 5px solid rgb(24, 185, 91);">
+                                    <h3 class="news_Header">Vancouver Whitecaps Loses</h3>
+                                    <p class="news_Description">The Vancouver Whitecaps loses to Vancouver Canucks over the weekend. Score was 3-2.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="News.html" target="_blank">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image5.jpg" alt="Crime" style="border-left: 5px solid red;">
+                                    <h3 class="news_Header">Stabbing at Downtown Vancouver</h3>
+                                    <p class="news_Description">Man got stabbed while walking in Downtown Vancouver by some random kids with black airforces.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="News.html" target="_blank">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image6.jpg" alt="Crime" style="border-left: 5px solid red;">
+                                    <h3 class="news_Header">Vancouver man dies after crossing the street</h3>
+                                    <p class="news_Description">Man dies after trying to cross the street at Rupert Street. Witness says the man ran to the other side of the street without waiting for the red light.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="News.html" target="_blank">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image7.jpg" alt="Crime" style="border-left: 5px solid rgb(77, 77, 77);">
+                                    <h3 class="news_Header">Local artist just dropped a new song</h3>
+                                    <p class="news_Description">A local artist named Stephen Asuncion gained recognition after dropping a new single called Merry Christmas Yezerski.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="News.html" target="_blank">
+                            <div class="news_Container">
+                                <div class="news_Bar">
+                                    <img class="news_Image" src="Images/news_Image8.jpg" alt="Crime" style="border-left: 5px solid rgb(77, 77, 77);">
+                                    <h3 class="news_Header">Snow possible for Vancouver</h3>
+                                    <p class="news_Description">Due to the cold weather in Vancouver It is possible to snow. On November 9th 2020, It snowed in Vancouver.</p>
+                                    <p class="news_Author">Author: Stephen Asuncion</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://vancouversun.com/">
+                            <p id="text_More">Click here for more...</p>
+                        </a>
+                    </div>
+
+                    <div id="third_Container">
+                        <div class="socials_Bar">
+                            <h1 class="socials_Title">Socials</h1>
+                        </div>
+                        <div id="socials_Entire">
+                            <a href="https://www.facebook.com/places/Things-to-do-in-Vancouver-British-Columbia/114497808567786/" target="_blank">
+                                <div id="socials_Facebook">
+                                    <img id="image_FB" src="Images/socials_FB.png" alt="Facebook">
+                                    <h3 id="socials_FB">Facebook</h3>
+                                </div>
+                            </a>
+                            <a href="https://twitter.com/CityofVancouver" target="_blank">
+                                <div id="socials_Twitter">
+                                    <img id="image_TW" src="Images/socials_TW.png" alt="Twitter">
+                                    <h3 id="socials_TW">Twitter</h3>
+                                </div>
+                            </a>
+                           <a href="https://www.youtube.com/user/VancouverSunOnline" target="_blank">
+                                <div id="socials_Youtube">
+                                    <img id="image_YT" src="Images/socials_YT.png" alt="Youtube">
+                                    <h3 id="socials_YT">Youtube</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div id="weather_Container">
+                            <h3>Today's Date</h3>
+                            <h4 id="weather_Date">Saturday, November 6, 2020</h4>
+                        </div>
+
+                        <div id="advertisement_Container">
+                            <a href="https://stephenasunciondev.github.io/">
+                                <img src="Images/advertisement_Image1.jpg" alt="advertisement">
+                            </a>
+                        </div>
+
+                        <div class="socials_Bar" style="margin-top: 22px;">
+                            <h1 class="socials_Title">Useful Links</h1>
+
+                            <h5 class="useful_Title">Local News:</h5>
+                            <a class="useful_Link" href="https://vancouversun.com/category/news/" target="_blank">Vancouver Sun</a>
+                            <a class="useful_Link" href="https://www.vancouverisawesome.com/" target="_blank">Vancouver is Awesome</a>
+                            <a class="useful_Link" href="https://bc.ctvnews.ca/" target="_blank">CTV News Vancouver</a>
+                            <a class="useful_Link" href="https://globalnews.ca/bc/" target="_blank">Global News BC</a>
+                            <a class="useful_More" href="News.html" style="color: #008cff;">See more...</a>
+
+                            <h5 class="useful_Title">Tourist Attractions:</h5>
+                            <a class="useful_Link" href="https://gastown.org/" target="_blank">Gastown</a>
+                            <a class="useful_Link" href="https://vancouver.ca/parks-recreation-culture/queen-elizabeth-park.aspx" target="_blank">Queen Elizabeth Park</a>
+                            <a class="useful_Link" href="https://www.vanaqua.org/" target="_blank">Vancouver Aquarium</a>
+                            <a class="useful_Link" href="https://www.grousemountain.com/" target="_blank">Grouse Mountain</a>
+                            <a class="useful_Link" href="https://www.canadaplace.ca/" target="_blank">Canada Place</a>
+                            <a class="useful_More" href="ThingsToDo.html" style="color: #008cff;">See more...</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <p>Copyright © 2020 Stephen Asuncion</p>
+                <a href="mailto:sasuncion02@mylangara.ca">sasuncion02@mylangara.ca</a>
+             </footer>
+        </div>
+        <script src="main.js"></script>
+	</body>
+</html>

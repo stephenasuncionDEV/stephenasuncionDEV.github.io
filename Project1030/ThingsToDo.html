@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>To Do | City of Vancouver</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="Images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="main.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	</head>
+		
+	<body>
+    <div id="wrapper">
+		  <header>
+        <a href="index.html"><img src="Images/web_Logo.png" id="logo" alt="logo"></a>
+        <input type="text" id="search" name="search" value="Search">
+		  </header>
+
+        <nav>
+           <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="News.html">News</a></li>
+              <li><a href="Events.html">Events</a></li>
+              <li><a href="ThingsToDo.html" style="border-bottom: 3px solid #008cff;">Things to Do</a></li>
+              <li><a href="BusinessEconomy.html">Business and Economy</a></li>
+              <li><a href="LawAndSafety.html">Law and Safety</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+           </ul>       
+        </nav>
+
+		    <main>
+                <div class="site_Title">
+                    <h1>Things to-do</h1>
+                </div>
+
+                <div id="announcement_Bar">
+                    <h1 id="announcement_Title">Announcement: </h1>
+                    <p id="announcement_Text">New website design was implemented. Please check our contact page to submit any issues.</p>
+                    <h3 id="announcement_Close" onclick="closeAnnouncement()">X</h3>
+                </div>
+
+                <div id="first_Container">
+                    <div id="second_Container">
+                      <div class="main_Bar">
+                          <h1 class="main_Title">Activities</h1>
+                      </div>
+
+                      <div id="table_Container">
+                          <table id="table_Table">
+                              <tr>
+                                <th>SeaBus to North Vancouver</th>
+                                <td>Go to North Vancouver by riding the SeaBus. Get a chance to see seagulls flying and planes taking off and landing. You can use your train ticket or compass to ride the seabus so you do not have to worry about tickets being expensive, it is fairly cheap.</td>
+                              </tr>
+                              <tr>
+                                <th>SkyTrain to New Westminster and beyond</th>
+                                <td>Also known as Expo Line. Look through your window and you will see a giant ball looking like building which is the Science World. This ride takes about 30 minutes but It is worth it. You just need to buy a train ticket for 2 Dollars and you are set. Enjoy your ride with your friends and families.</td>
+                              </tr>
+                              <tr>
+                                <th>Kitsilano Beach</th>
+                                <td>If you are into beaches, Kitsilano Beach is a good place to go to. You would see a beach full of gold sand. There is also a basketball court nearby so If you are tired of looking at the sea you can just play Basketball. Also, It is only 10 minutes from Downtown Vancouver.</td>
+                              </tr>
+                              <tr>
+                                <th>Kitsilano Pool</th>
+                                <td>Kitsilano Pool is located at Kitsilano Beach. It is a go-to destination for kids ranging from 4-7. What are you waiting for go swim with your family or friends.</td>
+                              </tr>
+                              <tr>
+                                <th>Stanley Park</th>
+                                <td>Stanley Park is located at the North-West side of Vancouver Downtown. If you like nature this place is a good place to go to due to its tall trees. Basically, everywhere you look its green its all natural. You can also hike with your family and friends if you want to. There's also a playground with pool and water slides making this place good for a family get together.</td>
+                              </tr>
+                              <tr>
+                                <th>Lonsdale Quay Market</th>
+                                <td>Quay Market is where the SeaBus docks. Get a chance to eat a nice restaurant with your family and friends. There are also a lot of stores and public market where you can basically buy anything you want ranging from clothes to accessories.</td>
+                              </tr>
+                              <tr>
+                                <th>Playland</th>
+                                <td>Only open from May to the end of September. Playland is an amusement park where you can go ride scary rides like Extreme Elevator, Pirate Ship, and more. This place is a good destination for couples or family in general.</td>
+                              </tr>
+                          </table>
+                        </div>
+                      <a href="https://www.tourismvancouver.com/">
+                          <p style="display: inline-block; margin-top: 2em; text-align: center; width: 100%; font-weight: bold; color:#008cff">Click here for more...</p>
+                      </a>
+                    </div>
+
+                    <div id="third_Container">
+                        <div class="socials_Bar">
+                            <h1 class="socials_Title">Socials</h1>
+                        </div>
+                        <div id="socials_Entire">
+                            <a href="https://www.facebook.com/places/Things-to-do-in-Vancouver-British-Columbia/114497808567786/" target="_blank">
+                                <div id="socials_Facebook">
+                                    <img id="image_FB" src="Images/socials_FB.png" alt="Facebook">
+                                    <h3 id="socials_FB">Facebook</h3>
+                                </div>
+                            </a>
+                            <a href="https://twitter.com/CityofVancouver" target="_blank">
+                                <div id="socials_Twitter">
+                                    <img id="image_TW" src="Images/socials_TW.png" alt="Twitter">
+                                    <h3 id="socials_TW">Twitter</h3>
+                                </div>
+                            </a>
+                           <a href="https://www.youtube.com/user/VancouverSunOnline" target="_blank">
+                                <div id="socials_Youtube">
+                                    <img id="image_YT" src="Images/socials_YT.png" alt="Youtube">
+                                    <h3 id="socials_YT">Youtube</h3>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div id="weather_Container">
+                            <h3>Today's Date</h3>
+                            <h4 id="weather_Date">Saturday, November 6, 2020</h4>
+                        </div>
+
+                        <div class="socials_Bar" style="margin-top: 22px;">
+                          <h1 class="socials_Title">Useful Links</h1>
+
+                          <h5 class="useful_Title">Local News:</h5>
+                          <a class="useful_Link" href="https://vancouversun.com/category/news/" target="_blank">Vancouver Sun</a>
+                          <a class="useful_Link" href="https://www.vancouverisawesome.com/" target="_blank">Vancouver is Awesome</a>
+                          <a class="useful_Link" href="https://bc.ctvnews.ca/" target="_blank">CTV News Vancouver</a>
+                          <a class="useful_Link" href="https://globalnews.ca/bc/" target="_blank">Global News BC</a>
+                          <a class="useful_More" href="News.html" style="color: #008cff;">See more...</a>
+
+                          <h5 class="useful_Title">Tourist Attractions:</h5>
+                          <a class="useful_Link" href="https://gastown.org/" target="_blank">Gastown</a>
+                          <a class="useful_Link" href="https://vancouver.ca/parks-recreation-culture/queen-elizabeth-park.aspx" target="_blank">Queen Elizabeth Park</a>
+                          <a class="useful_Link" href="https://www.vanaqua.org/" target="_blank">Vancouver Aquarium</a>
+                          <a class="useful_Link" href="https://www.grousemountain.com/" target="_blank">Grouse Mountain</a>
+                          <a class="useful_Link" href="https://www.canadaplace.ca/" target="_blank">Canada Place</a>
+                          <a class="useful_More" href="ThingsToDo.html" style="color: #008cff;">See more...</a>
+                      </div>
+                    </div>
+                </div>
+            </main>
+
+        <footer>
+            <p>Copyright © 2020 Stephen Asuncion</p>
+            <a href="mailto:sasuncion02@mylangara.ca">sasuncion02@mylangara.ca</a>
+        </footer>
+      </div>
+    <script src="main.js"></script>
+	</body>
+</html>

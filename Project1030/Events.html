@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Events | City of Vancouver</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="Images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="main.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	</head>
+		
+	<body>
+        <div id="wrapper">
+		    <header>
+                <a href="index.html"><img src="Images/web_Logo.png" id="logo" alt="logo"></a>
+                <input type="text" id="search" name="search" value="Search">
+		    </header>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="News.html">News</a></li>
+                    <li><a href="Events.html" style="border-bottom: 3px solid #008cff;">Events</a></li>
+                    <li><a href="ThingsToDo.html">Things to Do</a></li>
+                    <li><a href="BusinessEconomy.html">Business and Economy</a></li>
+                    <li><a href="LawAndSafety.html">Law and Safety</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>       
+            </nav>
+
+		    <main>
+                <div class="site_Title">
+                    <h1>Events</h1>
+                </div>
+
+                <div id="announcement_Bar">
+                    <h1 id="announcement_Title">Announcement: </h1>
+                    <p id="announcement_Text">New website design was implemented. Please check our contact page to submit any issues.</p>
+                    <h3 id="announcement_Close" onclick="closeAnnouncement()">X</h3>
+                </div>
+
+                <div id="first_Container">
+                    <div id="second_Container">
+                        
+                        <div class="main_Bar">
+                            <h1 class="main_Title">Today's Event</h1>
+                        </div>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num_Today">18</h1>
+                                        <p class="event_Day_Today">Wednesday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Seniors Gathering (Virtual) via Zoom</p>
+                                        <p class="event_Description">Vancouver | 8:30 AM - 10:30 AM</p>
+                                    </div>
+                                </div>
+                            </a>
+            
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num_Today">18</h1>
+                                        <p class="event_Day_Today">Wednesday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Student Survey (Virtual) via Microsoft Team</p>
+                                        <p class="event_Description">Vancouver | 10:30 AM - 12:30 AM</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="main_Bar" style="margin-top: 1em;">
+                            <h1 class="main_Title">All Events</h1>
+                        </div>
+                        
+                        <h1 class="event_Month_Title" style="margin-bottom: 0.2em;">November</h1>
+
+                        <div class="events_Container">    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num">8</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Filipino Independence Day Festival</p>
+                                        <p class="event_Description">Vancouver | October 28, 2020 - November 8, 2020</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num">15</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Celebration of Vancouver Canucks</p>
+                                        <p class="event_Description">Vancouver | July 28, 2020 - November 15, 2020</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num">26</h1>
+                                        <p class="event_Day">Thursday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Stanley Park Bright Night Lightshow</p>
+                                        <p class="event_Description">Vancouver | November 26, 2020 - January 1, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num">27</h1>
+                                        <p class="event_Day">Friday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Festival of Trees Vancouver</p>
+                                        <p class="event_Description">Vancouver | November 27, 2020 - January 3, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <h1 class="event_Month_Title" style="margin-top: 0.8em; margin-bottom: 0.4em;">December</h1>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">December</p>
+                                        <h1 class="event_Num">2</h1>
+                                        <p class="event_Day">Wednesday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Fly Like Santa at FlyOver Canada</p>
+                                        <p class="event_Description">Vancouver | December 2, 2020 - January 3, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">December</p>
+                                        <h1 class="event_Num">13</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Maple Ridge Garage Sale</p>
+                                        <p class="event_Description">Vancouver | December 13, 2020 - January 8, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">December</p>
+                                        <h1 class="event_Num">24</h1>
+                                        <p class="event_Day">Thursday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Glow Gardens</p>
+                                        <p class="event_Description">Vancouver | December 24, 2020 - January 1, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole" >
+                                    <div class="event_Date">
+                                        <p class="event_Month">December</p>
+                                        <h1 class="event_Num">29</h1>
+                                        <p class="event_Day">Friday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Granville Island Festive Lights</p>
+                                        <p class="event_Description">Vancouver | December 29, 2020 - January 3, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <h1 class="event_Month_Title" style="margin-top: 0.8em; margin-bottom: 0.6em;">January</h1>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">January</p>
+                                        <h1 class="event_Num">3</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Heritage Christmas</p>
+                                        <p class="event_Description">Vancouver | January 3, 2021 - January 18, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">January</p>
+                                        <h1 class="event_Num">15</h1>
+                                        <p class="event_Day">Friday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Dine Out Vancouver Festival</p>
+                                        <p class="event_Description">Vancouver | January 15, 2021 - February 12, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">January</p>
+                                        <h1 class="event_Num">26</h1>
+                                        <p class="event_Day">Wednesday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">PuSh International Performing Arts Festival</p>
+                                        <p class="event_Description">Vancouver | January 26, 2021 - February 7, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">January</p>
+                                        <h1 class="event_Num">28</h1>
+                                        <p class="event_Day">Friday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Towers of Tomorrow with LEGO Bricks</p>
+                                        <p class="event_Description">Vancouver | August 8, 2020 - January 3, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <h1 class="event_Month_Title" style="margin-top: 0.9em; margin-bottom: 0.6em;">February</h1>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">February</p>
+                                        <h1 class="event_Num">9</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Lil Uzi Vert Tour</p>
+                                        <p class="event_Description">Vancouver | February 9, 2021 - February 10, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">February</p>
+                                        <h1 class="event_Num">9</h1>
+                                        <p class="event_Day">Frclassay</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">21 Savage Concert</p>
+                                        <p class="event_Description">Vancouver | February 9, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">March</p>
+                                        <h1 class="event_Num">26</h1>
+                                        <p class="event_Day">Wednesday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Sam Smith World Concert</p>
+                                        <p class="event_Description">Vancouver | January 26, 2021 - February 7, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+    
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">March</p>
+                                        <h1 class="event_Num">28</h1>
+                                        <p class="event_Day">Friday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">We Are One foundation launch</p>
+                                        <p class="event_Description">Vancouver | August 8, 2020 - January 3, 2021</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <h1 class="event_Month_Title" style="margin-top: 0.9em; margin-bottom: 0.6em;">March</h1>
+
+                        <div class="events_Container">
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num">8</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Filipino Independence Day Festival</p>
+                                        <p class="event_Description">Vancouver | February 28, 2020 - March 8, 2020</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="Events.html">
+                                <div class="event_Whole">
+                                    <div class="event_Date">
+                                        <p class="event_Month">November</p>
+                                        <h1 class="event_Num">15</h1>
+                                        <p class="event_Day">Sunday</p>
+                                    </div>
+                                    <div class="event_Content">
+                                        <p class="event_Text">Celebration of Vancouver Canucks</p>
+                                        <p class="event_Description">Vancouver | February 28, 2020 - March 15, 2020</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>        
+                        <p id="text_More">More Coming Soon...</p>
+                    </div>
+
+                    <div id="third_Container">
+                        <div class="socials_Bar">
+                            <h1 class="socials_Title">Socials</h1>
+                        </div>
+                        <div id="socials_Entire">
+                            <a href="https://www.facebook.com/places/Things-to-do-in-Vancouver-British-Columbia/114497808567786/" target="_blank">
+                                <div id="socials_Facebook">
+                                    <img id="image_FB" src="Images/socials_FB.png" alt="Facebook">
+                                    <h3 id="socials_FB">Facebook</h3>
+                                </div>
+                            </a>
+                            <a href="https://twitter.com/CityofVancouver" target="_blank">
+                                <div id="socials_Twitter">
+                                    <img id="image_TW" src="Images/socials_TW.png" alt="Twitter">
+                                    <h3 id="socials_TW">Twitter</h3>
+                                </div>
+                            </a>
+                           <a href="https://www.youtube.com/user/VancouverSunOnline" target="_blank">
+                                <div id="socials_Youtube">
+                                    <img id="image_YT" src="Images/socials_YT.png" alt="Youtube">
+                                    <h3 id="socials_YT">Youtube</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div id="weather_Container">
+                            <h3>Today's Date</h3>
+                            <h4 id="weather_Date">Saturday, November 6, 2020</h4>
+                        </div>
+
+                        <div id="advertisement_Container">
+                            <a href="https://stephenasunciondev.github.io/">
+                                <img src="Images/advertisement_Image1.jpg" alt="advertisement">
+                            </a>
+                        </div>
+
+                        <div class="socials_Bar" style="margin-top: 22px;">
+                            <h1 class="socials_Title">Useful Links</h1>
+
+                            <h5 class="useful_Title">Local News:</h5>
+                            <a class="useful_Link" href="https://vancouversun.com/category/news/" target="_blank">Vancouver Sun</a>
+                            <a class="useful_Link" href="https://www.vancouverisawesome.com/" target="_blank">Vancouver is Awesome</a>
+                            <a class="useful_Link" href="https://bc.ctvnews.ca/" target="_blank">CTV News Vancouver</a>
+                            <a class="useful_Link" href="https://globalnews.ca/bc/" target="_blank">Global News BC</a>
+                            <a class="useful_More" href="News.html" style="color: #008cff;">See more...</a>
+
+                            <h5 class="useful_Title">Tourist Attractions:</h5>
+                            <a class="useful_Link" href="https://gastown.org/" target="_blank">Gastown</a>
+                            <a class="useful_Link" href="https://vancouver.ca/parks-recreation-culture/queen-elizabeth-park.aspx" target="_blank">Queen Elizabeth Park</a>
+                            <a class="useful_Link" href="https://www.vanaqua.org/" target="_blank">Vancouver Aquarium</a>
+                            <a class="useful_Link" href="https://www.grousemountain.com/" target="_blank">Grouse Mountain</a>
+                            <a class="useful_Link" href="https://www.canadaplace.ca/" target="_blank">Canada Place</a>
+                            <a class="useful_More" href="ThingsToDo.html" style="color: #008cff;">See more...</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <p>Copyright © 2020 Stephen Asuncion</p>
+                <a href="mailto:sasuncion02@mylangara.ca">sasuncion02@mylangara.ca</a>
+             </footer>
+        </div>
+        <script src="main.js"></script>
+	</body>
+</html>
