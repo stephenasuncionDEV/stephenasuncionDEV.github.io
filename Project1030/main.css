@@ -4,7 +4,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', 'Roboto', 'Verdana';
     color: #222222;
-    background-color: #99C8E2;
+    background-color: #ffffff;
     background-image: url(Images/body_Image.jpg);
     background-repeat: repeat-y;
     background-size: cover;
@@ -39,7 +39,7 @@ body {
 }
 
 #wrapper {
-    background-color: snow;
+    background-color: rgb(255, 255, 255);
     width: 1111.830px;
     height: 100%;
     margin-left: auto;
@@ -505,10 +505,7 @@ footer a { text-decoration: underline; }
     height: auto;
     padding: 10px;
     padding-bottom: 25px;
-    border-bottom: 1px solid rgb(182, 182, 182);
 }
-
-.business_UnlistedList li:last-child { border-bottom: none }
 
 .business_Image {
     margin-top: 0;
@@ -541,6 +538,75 @@ footer a { text-decoration: underline; }
     text-align: center;
     font-weight: bold; 
     color:#008cff;
+}
+
+audio {
+    margin-top: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery_Container {
+    height: 450px;
+    width: auto;
+}
+
+.gallery_Whole {
+    position: relative;
+    background-image: linear-gradient(#ffffff, #eeeeee);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 355px;
+}
+
+.gallery_Whole figure {
+    position: absolute;
+    left: 280px;
+    text-align: center;
+    opacity: 0.25;
+    margin-right: 1em;
+}
+
+.gallery_Whole figure img {
+    margin-top: 0.5em;
+}
+
+.gallery_Whole ul {
+    width: 300px;
+    list-style: none;
+}
+
+.gallery_Whole li {
+    display: inline;
+    float: left;
+    margin-left: 1em;
+    margin-top: 1.5em;
+}
+
+.gallery_Whole img {
+    border: none;
+}
+
+.gallery_Whole a {
+    text-decoration: none;
+    font-style: italic;
+    color: black;
+}
+
+.gallery_Whole span {
+    position: absolute;
+    left: -1000px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.gallery_Whole a:hover span {
+    margin-top: 0.5em;
+    position: absolute;
+    top: 16px;
+    left: 320px;
+    text-align: center;
+    opacity: 1;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -645,6 +711,16 @@ footer a { text-decoration: underline; }
     #thanks_Container h3, p{
         margin-left: 22px;
     }
+
+    .gallery_Container {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    details {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
 }
 
 @media only screen and (max-width: 795px) {
@@ -653,6 +729,14 @@ footer a { text-decoration: underline; }
     }
 
     #slide_Container {
+        display: none;
+    }
+
+    .gallery_Container {
+        display: none;
+    }
+
+    #gallery_Title {
         display: none;
     }
 
