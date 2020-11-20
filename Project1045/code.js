@@ -22,8 +22,8 @@ bg_Grass.src = "Images/g_Grass.png";
 function Setup() {
     Canvas = document.getElementById("drawingCanvas");
     Context = Canvas.getContext("2d");
-    //LoadFirstScreen();
-    LoadGame();
+    LoadFirstScreen();
+    //LoadGame();
 }
 
 let p_Name;
