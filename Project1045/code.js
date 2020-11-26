@@ -590,16 +590,6 @@ function gameChange(int) {
     enemyArr = [];
     int == 0 ? (enemyVar.e_MaxCount = enemyVar.e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += 3, gameScene = 1);
 
-    // if (int == 0) {
-    //     enemyVar.e_MaxCount = enemyVar.e_PerRound;
-    //     gameScene = 0;
-    // } else if (int == 1) {
-    //     enemyVar.e_MaxCount += enemyVar.e_PerRound;
-    //     gameScene = 1;
-    // }
-
-    console.log(enemyVar.e_MaxCount);
-
     roundNum++;
     roundInfo.number = roundNum;
     roundInfo.time = roundTimerSec;
