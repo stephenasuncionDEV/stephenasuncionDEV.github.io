@@ -82,7 +82,7 @@ let Physics = {
     groudLoc: 372,
     pSpeed: 0.8,
     jumpVelocity: 40,
-    sideJumpVelocity: 0.2,
+    sideJumpVelocity: 0.4,
     gravity: 1
 }
 
@@ -465,7 +465,7 @@ function DrawStartGame() {
 function DrawCountdown(number) {
     context.font = "30pt Montserrat";
     context.fillStyle = "black";
-    context.fillText(`Round: ${roundNum}`, 30, 60);
+    context.fillText(`Round: ${roundNum + 1}`, 30, 60);
 
     context.font = "350pt Montserrat";
     context.strokeStyle = "black";
@@ -504,6 +504,8 @@ function Animate() {
             }
             if (roundCount2 == 0) {
                 gameScene = 2;
+                playerArr[0].x = canvas.width / 2 - (playerArr[0].width * playerSpriteResize / 2);
+                playerArr[0].y = canvas.height - (playerArr[0].height * playerSpriteResize) - 52;
             }
         }
         if (gameScene == 2) {
