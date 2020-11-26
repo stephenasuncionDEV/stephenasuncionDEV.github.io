@@ -530,7 +530,7 @@ function gameChange(int) {
     enemyArr = [];
     enemyStopProduce = false;
 
-    int == 0 ? enemyVar.e_MaxCount = 5 : enemyVar.e_MaxCount += 5;
+    int == 0 ? (enemyVar.e_MaxCount = 5, gameScene = 0) : (enemyVar.e_MaxCount += 5, gameScene = 1);
 
     roundNum++;
     roundInfo.number = roundNum;
