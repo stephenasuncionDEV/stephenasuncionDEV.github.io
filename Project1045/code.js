@@ -284,7 +284,7 @@ class Enemy {
                 this.dead = false;
             }
         }
-        if (isInside(this.x, this.y, this.width * enemySpriteResize - 50, this.height * enemySpriteResize, playerArr[0].x, playerArr[0].y)) {
+        if (isInside(this.x, this.y, (this.width * enemySpriteResize) - 60, (this.height * enemySpriteResize) - 50, playerArr[0].x, playerArr[0].y)) {
            enemyStopProduce = false;
            gameChange(0);
         }
@@ -533,7 +533,7 @@ function gameChange(int) {
     enemyArr = [];
     enemyStopProduce = false;
 
-    int == 0 ? (enemyVar.e_MaxCount = e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += e_PerRound, gameScene = 1);
+    int == 0 ? (enemyVar.e_MaxCount = enemyVar.e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += enemyVar.e_PerRound, gameScene = 1);
 
     roundNum++;
     roundInfo.number = roundNum;
