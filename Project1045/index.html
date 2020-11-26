@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-    <script src="CanvasInput.min.js"></script>
+    <title>Document</title>
+    <style>
+        table, td, th {
+          border: 1px solid black;
+        }
+        
+        table {
+          width: 600px;
+          border-collapse: collapse;
+          text-align: center;
+        }
+    </style>
 </head>
-<body onload="Setup();">
-    <h1>CrocoJump 2020</h1>
+<body>
+    <canvas id="drawingCanvas" width="600" height="500" style="border-style: solid"></canvas>
     <br>
-    <div id="user_Info"></div>
-    <br>
-    <canvas id="drawingCanvas" width="700" height="520" style="border-style: solid"></canvas>
-    <br>
-    <input type="checkbox" id="m_Follow" name="m_Follow" value="m_Follow" checked="true">
-    <label for="m_Follow">Follow Mouse</label>
-    <br>
-    <label for="m_Follow">Food Count: </label>
-    <input type="text" id="m_Food" name="m_Food" value="3">
-    
+    <h3 id="powerVal" style="font-family: 'Montserrat', 'Roboto'; margin-left: 1em; color:rgb(59, 59, 59)">Power: 0</h3>
+    <h3 id="timeVal" style="font-family: 'Montserrat', 'Roboto'; margin-left: 1em; color:rgb(59, 59, 59)">Timer: 0</h3>
+    <img src="Images/Keys.png" alt="Hotkeys">
+    <h3 style="font-family: 'Montserrat', 'Roboto'; margin-left: 1em; color:rgb(59, 59, 59)">Result:</h3>
+    <div id="roundOutput">
+        <table id="roundTable">
+            <tr>
+                <th>Round</th>
+                <th>Time</th>
+            </tr>
+
+        </table>
+    </div>
     <script src="code.js"></script>
 </body>
 </html>
