@@ -25,7 +25,7 @@ let backgroundSpritePos = 0;
 let groundSpritePos = 0;
 let grassSpritePos = 0;
 let cloudSpritePos = 0;
-let gameScene = 0; //0 - Start Page, 1 - Countdown, 2 - Game
+let gameScene = 0; //0 - Start Page, 1 - Countdown, 2 - Game, 3 - Game Boss
 let gameBtnPadding = 0;
 
 let playerArr = [];
@@ -43,8 +43,10 @@ let enemyVelocity = [];
 let enemySpritePos = 0;
 let enemySpriteResize = 0.25;
 let enemyStopProduce = false;
+let bossResize = 0.75;
+let bossBulletX = 0;
+let bossBulletY = 0;
 
-let roundEnd = false;
 let roundCount = 1;
 let roundCount2 = 4;
 let roundNum = 0;
@@ -59,7 +61,6 @@ let fCount = 0;
 let powerVal = document.getElementById("powerVal");
 let keyArr = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "s", "a", "d", "f", " "];
 let table = document.getElementById("roundTable");
-let time = document.getElementById("timeVal");
 
 let mouse = {
     x: 0,
@@ -68,7 +69,10 @@ let mouse = {
 
 let enemyVar = {
     e_MaxCount: 5,
-    e_PerRound: 3
+    e_PerRound: 3,
+    e_TargetX: 0,
+    e_TargetY: 0,
+    e_TargetLock: false
 }
 
 let gameSpeed = {
@@ -187,6 +191,14 @@ class Player {
 
         this.Draw(direction);
     }
+
+    Fire(direction) {
+        let bulletX = (playerArr[0].x + playerArr[0].width * playerSpriteResize) - ((playerArr[0].width * playerSpriteResize) / 2);
+        let bulletY = (playerArr[0].y + playerArr[0].height * playerSpriteResize) - ((playerArr[0].height * playerSpriteResize) / 2);
+        let bullet = new Bullets(bulletX, bulletY, 45, 25, 10, 10);
+        bulletsArr.push(bullet)
+        bulletsPosArr.push(direction);
+    }
 }
 
 class Bullets {
@@ -239,9 +251,9 @@ class Enemy {
 
     Draw() {    
         enemySpritePos += this.width;
-        context.shadowBlur = 10;
-        context.shadowColor = "black";
+        context.shadowBlur = 20;
         let centerX = canvas.height / 2;
+        gameScene == 3 ? (enemySpriteResize = 0.75, context.shadowColor = "black") : (enemySpriteResize = 0.25, context.shadowColor = "black");
         if (playerArr[0].x > centerX) {
             context.save();
             context.translate(this.x + this.x, this.y - this.y);
@@ -259,22 +271,28 @@ class Enemy {
     }
 
     Move() {
+        let xSpeed = gameScene == 3 ? getRNDM(1, gameSpeed.s_Enemy) : getRNDM(1, gameSpeed.s_Enemy);
+        let ySpeed = gameScene == 3 ? getRNDM(0.2, 1) : getRNDM(1, gameSpeed.s_Enemy);
+
         if (this.x > playerArr[0].x) {
-            this.x -= getRNDM(1, gameSpeed.s_Enemy);
+            this.x -= xSpeed;
         } else {
-            this.x += getRNDM(1, gameSpeed.s_Enemy);
+            this.x += xSpeed;
         }
 
-        if (this.y > playerArr[0].y) {
-            this.y -= getRNDM(1, gameSpeed.s_Enemy);
-        } else {
-            this.y += getRNDM(1, gameSpeed.s_Enemy);
+        if (gameScene == 2) {
+            if (this.y > playerArr[0].y) {
+                this.y -= ySpeed;
+            } else {
+                this.y += ySpeed;
+            }
         }
 
         this.Draw();
     }
 
     CheckCollision() {
+        gameScene == 3 ? (enemySpriteResize = 0.75) : (enemySpriteResize = 0.25);
         for (let f = 0; f < bulletsArr.length; f++) {
             if (isInside(this.x, this.y, (this.width * enemySpriteResize), this.height * enemySpriteResize, bulletsArr[f].x, bulletsArr[f].y)) {
                 this.dead = true;
@@ -288,6 +306,38 @@ class Enemy {
            enemyStopProduce = false;
            gameChange(0);
         }
+        if (isInside(bossBulletX, bossBulletY, 50, 50, playerArr[0].x, playerArr[0].y)) {
+            enemyStopProduce = false;
+            gameChange(0);
+        }
+    }
+
+    Fire() {
+        let xSpeed = 8;
+        let ySpeed = 8;
+
+        if (bossBulletX > enemyVar.e_TargetX) {
+            bossBulletX -= xSpeed;
+        } else {
+            bossBulletX += xSpeed;
+        }
+
+        if (bossBulletY > enemyVar.e_TargetY) {
+            bossBulletY -= ySpeed;
+        } else {
+            bossBulletY += ySpeed;
+        }
+
+        context.shadowBlur = 10;
+        context.shadowColor = "red";
+        context.beginPath();
+        context.arc(bossBulletX, bossBulletY + 20, 5, 0, 2 * Math.PI);
+        context.fillStyle = "rgb(255,0,0)";
+        context.fill();
+        context.shadowBlur = 0;
+        // let bullet = new Bullets(bulletX, bulletY, 45, 25, 5, 5);
+        // bulletsArr.push(bullet)
+        // bulletsPosArr.push(direction);
     }
 }
 
@@ -307,14 +357,6 @@ function SetupDrawing() {
     let centerY = canvas.height - pic_Ground.height - (height * playerSpriteResize);
     let p_Drawing = new Player(centerX, centerY, width, height, dX, dY, false);
     playerArr.push(p_Drawing);
-}
-
-function AddBullet() {
-    let bulletX = (playerArr[0].x + playerArr[0].width * playerSpriteResize) - ((playerArr[0].width * playerSpriteResize) / 2);
-    let bulletY = (playerArr[0].y + playerArr[0].height * playerSpriteResize) - ((playerArr[0].height * playerSpriteResize) / 2);
-    bullet = new Bullets(bulletX, bulletY, 45, 25, 10, 10);
-    bulletsArr.push(bullet)
-    bulletsPosArr.push(playerLastLook);
 }
 
 function DrawBackground() {
@@ -361,7 +403,7 @@ function DrawClouds() {
 }
 
 function DrawPlayer() {
-    if (playerArr.length > 0 && gameScene == 2) {
+    if (playerArr.length > 0 && gameScene == 2 || gameScene == 3) {
         playerArr[0].Move(playerLastLook);
     }
 }
@@ -392,15 +434,18 @@ function DrawLogo() {
 }
 
 function AddEnemy() {
-    if (roundEnd == false && enemyStopProduce == false) {
+    if (enemyStopProduce == false) {
         let width = 257;
         let height = 280;
-        let x = getRNDM(width * enemySpriteResize, canvas.width - (width * enemySpriteResize));
-        let y = getRNDM(height * enemySpriteResize, canvas.height / 2 - 50);
+        gameScene == 3 ? (enemySpriteResize = 0.75, enemyVar.e_MaxCount = 0) : (enemySpriteResize = 0.25);
+        let x = getRNDM(width * enemySpriteResize, canvas.width - (width * enemySpriteResize))
+        let y = gameScene == 3 ? 10 : getRNDM(height * enemySpriteResize, canvas.height / 2 - 50);
         let dX = getRNDM(30, 50);
         let dY = getRNDM(30, 50);
         let enemy = new Enemy(x, y, width, height, dX, dY, false);
         enemyArr.push(enemy);
+        bossBulletX = x + (width * bossResize / 2);
+        bossBulletY = y + (height * bossResize / 2);
         if (enemyArr.length > enemyVar.e_MaxCount) {
             enemyStopProduce = true;
         }
@@ -411,29 +456,28 @@ function AddEnemy() {
             if (enemyArr[n].x === 0) {
                 enemyArr.splice(n, 1);
             } 
-            try {                
-                // let dX = (playerArr[0].x - enemyArr[n].x) / gameSpeed.s_Enemy;
-                // let dY = (playerArr[0].y - enemyArr[n].y) / gameSpeed.s_Enemy;
-
-                // if (enemyArr[n].x > playerArr[0].x) {
-                //     dX -= gameSpeed.s_Enemy;
-                // } else {
-                //     dX += gameSpeed.s_Enemy;
-                // }
-
-                // if (enemyArr[n].y > playerArr[0].y) {
-                //     dY -= gameSpeed.s_Enemy;
-                // } else {
-                //     dY += gameSpeed.s_Enemy;
-                // }
-
-                // enemyVel.dX = dX;
-                // enemyVel.dY = dY;
-                // enemyVelocity.push(enemyVel);
-                // enemyArr[n].dX = enemyVelocity[n].dX;
-                // enemyArr[n].dY = enemyVelocity[n].dY;
+            try {
                 enemyArr[n].Move();
                 enemyArr[n].CheckCollision();
+                if (gameScene == 3) {
+                    enemyArr[n].Fire();
+                    if (enemyVar.e_TargetLock == false) {
+                        enemyVar.e_TargetX = playerArr[0].x;
+                        enemyVar.e_TargetY = canvas.height;
+                        enemyVar.e_TargetLock = true;
+                    }
+                    if (bossBulletY > enemyVar.e_TargetY) {
+                        if (enemyArr[n].x > canvas.height) {
+                            bossBulletX = enemyArr[n].x - (enemyArr[n].width * bossResize / 2);
+                            bossBulletY = enemyArr[n].y + (enemyArr[n].height * bossResize / 2);
+                        } else {
+                            bossBulletX = enemyArr[n].x + (enemyArr[n].width * bossResize / 2);
+                            bossBulletY = enemyArr[n].y + (enemyArr[n].height * bossResize / 2);
+                        }
+                        enemyVar.e_TargetLock = false;
+                    }
+                    //console.log(bossBulletY);
+                }
             } catch {}
         }
     }
@@ -485,6 +529,14 @@ function DrawCountdown(number) {
     context.fillText(number, canvas.width / 2 - (250 / 2), canvas.height / 2 + 150);
 }
 
+function DrawTime() {
+    if (gameScene == 2 || gameScene == 3) {
+        context.font = "18pt Montserrat";
+        context.fillStyle = "black";
+        context.fillText(`Time: ${roundTimerSec} seconds`, canvas.width / 1.5, 30);
+    }
+}
+
 function Animate() {
     setTimeout(function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -494,6 +546,7 @@ function Animate() {
         DrawGrass();
         DrawClouds();
         DrawBullet();
+        DrawTime();
         if (gameScene == 1) {
             roundCount++;
             if (roundCount % 50 == 0) {
@@ -503,13 +556,18 @@ function Animate() {
             if (roundCount2 != 4) {
                 DrawCountdown(roundCount2);
             }
-            if (roundCount2 == 0) {
+            if (roundCount2 == 0 && roundNum < 4) {
                 gameScene = 2;
                 playerArr[0].x = canvas.width / 2 - (playerArr[0].width * playerSpriteResize / 2);
                 playerArr[0].y = canvas.height - (playerArr[0].height * playerSpriteResize) - 52;
             }
+            if (roundCount2 == 0 && roundNum == 4) {
+                gameScene = 3;
+                playerArr[0].x = canvas.width / 2 - (playerArr[0].width * playerSpriteResize / 2);
+                playerArr[0].y = canvas.height - (playerArr[0].height * playerSpriteResize) - 52;
+            }
         }
-        if (gameScene == 2) {
+        if (gameScene == 2 || gameScene == 3) {
             AddEnemy();
             startTimer();
         }
@@ -518,7 +576,6 @@ function Animate() {
             DrawStartGame();
             roundTimerSec = 0;
         }
-        time.textContent = `Time: ${roundTimerSec}`;
         requestAnimationFrame(Animate)
     }, 1000/canvas_FPS)
 }
@@ -531,29 +588,38 @@ function gameChange(int) {
     roundCount = 0;
     roundCount2 = 4;
     enemyArr = [];
-    enemyStopProduce = false;
+    int == 0 ? (enemyVar.e_MaxCount = enemyVar.e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += 3, gameScene = 1);
 
-    int == 0 ? (enemyVar.e_MaxCount = enemyVar.e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += enemyVar.e_PerRound, gameScene = 1);
+    // if (int == 0) {
+    //     enemyVar.e_MaxCount = enemyVar.e_PerRound;
+    //     gameScene = 0;
+    // } else if (int == 1) {
+    //     enemyVar.e_MaxCount += enemyVar.e_PerRound;
+    //     gameScene = 1;
+    // }
+
+    console.log(enemyVar.e_MaxCount);
 
     roundNum++;
     roundInfo.number = roundNum;
     roundInfo.time = roundTimerSec;
     roundArr.push(roundInfo);
 
-    table.innerHTML += `<tr><td>${roundArr[roundArr.length - 1].number}</td><td>${roundArr[roundArr.length - 1].time} seconds</td></tr>`;
+    int == 0 ? (table.innerHTML += `<tr><td>${roundArr[roundArr.length - 1].number}</td><td>${roundArr[roundArr.length - 1].time} seconds <span style="color:red;">(Died)</span></td></tr>`) : (table.innerHTML += `<tr><td>${roundArr[roundArr.length - 1].number}</td><td>${roundArr[roundArr.length - 1].time} seconds</td></tr>`);
 
     roundTimerInt = 0;
     roundTimerSec = 0;
 
     int == 0 ? (roundNum = 0, roundArr = []) : null;
+
+    enemyStopProduce = false;
 }
 
 function startTimer() {
-    if (gameScene == 2) {
+    if (gameScene == 2 || gameScene == 3) {
         roundTimerInt++;
         if (roundTimerInt % 60 == 0) {
             roundTimerSec++;
-            console.log(roundTimerSec);
         }
     }
     
@@ -609,7 +675,7 @@ window.addEventListener("keydown", function(event) {
     myKeys(event.key, true);
 
     for (let k = 0; k < keyArr.length; k++) {
-        if (controlKeys[keyArr[k]] == true && gameScene == 2) {
+        if (controlKeys[keyArr[k]] == true && (gameScene == 2 || gameScene == 3)) {
             if (k < 8) {
                 k < 4 ? (playerArr[0].Draw(k), playerLastDir = k) : (playerArr[0].Draw(k - 4), playerLastDir = k - 4);
             }
@@ -624,13 +690,13 @@ window.addEventListener("keydown", function(event) {
         playerLastLook = 3;
     }
 
-    if(controlKeys.f == true && gameScene == 2) {
+    if(controlKeys.f == true && (gameScene == 2 || gameScene == 3)) {
         if (fCount % 20 == 0) {
             let audio = new Audio("Sounds/m_Fireball.mp3");
             audio.play();
         }
         fCount >= 100 ? fCount = 100 : fCount+=2;
-        AddBullet();
+        playerArr[0].Fire(playerLastLook);
     }
 
     powerVal.innerHTML = `Power: ${fCount}`;
