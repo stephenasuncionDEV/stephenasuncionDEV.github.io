@@ -67,7 +67,8 @@ let mouse = {
 }
 
 let enemyVar = {
-    e_MaxCount: 5
+    e_MaxCount: 5,
+    e_PerRound: 3
 }
 
 let gameSpeed = {
@@ -532,7 +533,7 @@ function gameChange(int) {
     enemyArr = [];
     enemyStopProduce = false;
 
-    int == 0 ? (enemyVar.e_MaxCount = 5, gameScene = 0) : (enemyVar.e_MaxCount += 5, gameScene = 1);
+    int == 0 ? (enemyVar.e_MaxCount = e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += e_PerRound, gameScene = 1);
 
     roundNum++;
     roundInfo.number = roundNum;
