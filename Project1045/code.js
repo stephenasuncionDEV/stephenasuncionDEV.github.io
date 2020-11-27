@@ -72,7 +72,8 @@ let enemyVar = {
     e_PerRound: 3,
     e_TargetX: 0,
     e_TargetY: 0,
-    e_TargetLock: false
+    e_TargetLock: false,
+    e_OldCount: 0
 }
 
 let gameSpeed = {
@@ -271,21 +272,20 @@ class Enemy {
     }
 
     Move() {
+        let padding = 10;
         let xSpeed = gameScene == 3 ? getRNDM(1, gameSpeed.s_Enemy) : getRNDM(1, gameSpeed.s_Enemy);
         let ySpeed = gameScene == 3 ? getRNDM(0.2, 1) : getRNDM(1, gameSpeed.s_Enemy);
 
-        if (this.x > playerArr[0].x + (playerArr[0].width * playerSpriteResize / 2)) {
+        if (this.x > playerArr[0].x + (playerArr[0].width * enemySpriteResize ) / 2 + padding) {
             this.x -= xSpeed;
         } else {
             this.x += xSpeed;
         }
 
-        if (gameScene == 2) {
-            if (this.y > playerArr[0].y) {
-                this.y -= ySpeed;
-            } else {
-                this.y += ySpeed;
-            }
+        if (this.y > playerArr[0].y + (playerArr[0].height * enemySpriteResize ) / 2 - padding) {
+            this.y -= ySpeed;
+        } else {
+            this.y += ySpeed;
         }
 
         this.Draw();
@@ -302,11 +302,11 @@ class Enemy {
                 this.dead = false;
             }
         }
-        if (isInside(this.x, this.y, (this.width * enemySpriteResize) - 62, (this.height * enemySpriteResize) - 50, playerArr[0].x + (playerArr[0].width * playerSpriteResize / 2), playerArr[0].y)) {
+        if (isInside(this.x - (this.width * enemySpriteResize) / 2, this.y + (this.height * enemySpriteResize) / 2, 25, 25, playerArr[0].x + (playerArr[0].width * enemySpriteResize ) / 2, playerArr[0].y + (playerArr[0].height * enemySpriteResize ) / 2)) {
            enemyStopProduce = false;
            gameChange(0);
         }
-        if (isInside(bossBulletX, bossBulletY, 50, 50, playerArr[0].x, playerArr[0].y)) {
+        if (isInside(bossBulletX, bossBulletY, 50, 50, playerArr[0].x + (playerArr[0].width * enemySpriteResize ) / 2, playerArr[0].y + (playerArr[0].height * enemySpriteResize ) / 2)) {
             enemyStopProduce = false;
             gameChange(0);
         }
@@ -435,6 +435,9 @@ function DrawLogo() {
 
 function AddEnemy() {
     if (enemyStopProduce == false) {
+        if (roundNum == 5) {
+            enemyVar.e_MaxCount = enemyVar.e_OldCount;
+        }
         let width = 257;
         let height = 280;
         gameScene == 3 ? (enemySpriteResize = 0.75, enemyVar.e_MaxCount = 0) : (enemySpriteResize = 0.25);
@@ -556,16 +559,15 @@ function Animate() {
             if (roundCount2 != 4) {
                 DrawCountdown(roundCount2);
             }
-            if (roundCount2 == 0 && roundNum < 4) {
+            if (roundCount2 == 0 && (roundNum < 4 || roundNum > 4)) {
                 gameScene = 2;
-                playerArr[0].x = canvas.width / 2 - (playerArr[0].width * playerSpriteResize / 2);
-                playerArr[0].y = canvas.height - (playerArr[0].height * playerSpriteResize) - 52;
             }
             if (roundCount2 == 0 && roundNum == 4) {
                 gameScene = 3;
-                playerArr[0].x = canvas.width / 2 - (playerArr[0].width * playerSpriteResize / 2);
-                playerArr[0].y = canvas.height - (playerArr[0].height * playerSpriteResize) - 52;
+                enemyVar.e_OldCount = enemyVar.e_MaxCount;
             }
+            playerArr[0].x = canvas.width / 2 - (playerArr[0].width * playerSpriteResize / 2);
+            playerArr[0].y = canvas.height - (playerArr[0].height * playerSpriteResize) - 52;
         }
         if (gameScene == 2 || gameScene == 3) {
             AddEnemy();
@@ -589,6 +591,14 @@ function gameChange(int) {
     roundCount2 = 4;
     enemyArr = [];
     int == 0 ? (enemyVar.e_MaxCount = enemyVar.e_PerRound, gameScene = 0) : (enemyVar.e_MaxCount += 3, gameScene = 1);
+
+    if (int == 0) {
+        enemyVar.e_MaxCount = enemyVar.e_PerRound;
+        gameScene = 0;
+    } else if (int == 1) {
+        enemyVar.e_MaxCount += 3;
+        gameScene = 1;
+    }
 
     roundNum++;
     roundInfo.number = roundNum;
