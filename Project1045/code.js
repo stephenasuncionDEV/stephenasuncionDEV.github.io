@@ -274,7 +274,7 @@ class Enemy {
         let xSpeed = gameScene == 3 ? getRNDM(1, gameSpeed.s_Enemy) : getRNDM(1, gameSpeed.s_Enemy);
         let ySpeed = gameScene == 3 ? getRNDM(0.2, 1) : getRNDM(1, gameSpeed.s_Enemy);
 
-        if (this.x > playerArr[0].x) {
+        if (this.x > playerArr[0].x + (playerArr[0].width * playerSpriteResize / 2)) {
             this.x -= xSpeed;
         } else {
             this.x += xSpeed;
@@ -302,7 +302,7 @@ class Enemy {
                 this.dead = false;
             }
         }
-        if (isInside(this.x, this.y, (this.width * enemySpriteResize) - 60, (this.height * enemySpriteResize) - 50, playerArr[0].x, playerArr[0].y)) {
+        if (isInside(this.x, this.y, (this.width * enemySpriteResize) - 62, (this.height * enemySpriteResize) - 50, playerArr[0].x + (playerArr[0].width * playerSpriteResize / 2), playerArr[0].y)) {
            enemyStopProduce = false;
            gameChange(0);
         }
