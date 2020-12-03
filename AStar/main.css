@@ -204,6 +204,7 @@ footer a:visited {
     margin-right: auto;
     cursor: pointer;
     transition: transform .2s;
+    font-size: 6pt;
 }
 
 #grid:hover {
