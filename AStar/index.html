@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Home | A* PathFinding Visualizer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A website to visualize A* PathFinding Algorithm made by Stephen Asuncion" />
+        <meta name="keywords" content="Home, Contact, Visualize A*, A* Algorithm, Algorithm, Computer Science, Stephen, stephenasuncion, Asuncion, Visualization, Langara, Langara College" />
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="Header_Container">
+            <header>
+                <a href="https://github.com/stephenasuncionDEV"><img src="Images/Logo.jpg" width="80px" height="80px"></a>
+                <h1>A* PathFinding Visualizer.</h1>
+                <br>
+                <h6>By Stephen Asuncion</h6>
+            </header>
+        </div>
+        <div id="Nav_Container">
+            <nav>
+                <ul id="Nav_List">
+                    <li id="Nav_Current"><a href="index.html">Home</a></li>
+                    <li><a href="mailto:sasuncion02@mylangara.ca">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="Main_Container">
+            <main>
+                <button onclick="Visualize();" id="visualize_Button">Visualize A*</button>
+                <div class="Slider_Container">
+                    <p class="main_Label" id="speed_Label">Speed: 10ms</p>
+                    <input type="range" min="10" max="1000" value="10" class="slider" id="slider_Bar" oninput="sliderChange();" onchange="sliderChange();">
+                </div>
+                <button onclick="Reset();" id="retry_Button">Reset</button>
+                <div id="grid"></div>
+            </main>
+        </div>
+        <div id="Footer_Container">
+            <footer>
+                <span id="Footer_Left"></span>
+                <span>Copyright &copy; Stephen Asuncion 2020</span>
+                <a href="mailto:sasuncion02@mylangara.ca">sasuncion02@mylangara.ca</a>
+            </footer>
+        </div>
+        <script src="code.js"></script>
+    </body>
+</html>
