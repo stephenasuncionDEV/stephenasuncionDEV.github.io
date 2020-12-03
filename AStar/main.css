@@ -190,6 +190,7 @@ footer a:visited {
 }
 
 #grid {
+    clear: both;
     display: block;
     width: 1100px;
     height: auto;
