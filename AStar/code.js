@@ -68,7 +68,7 @@ class node{
         let grid = document.getElementById("grid");
         this.row = rowCounter;
         this.column = columnCounter;
-        grid.innerHTML += `<div id="node${this.column}_${this.row}" style="width:${nodeSize}px; height:${nodeSize}px; background-color:${stateColor[this.state]}; display:inline-block; border: 2px solid #ededed; box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);"><br><br></div>`;
+        grid.innerHTML += `<div id="node${this.column}_${this.row}" style="background-color:${stateColor[this.state]}; display:inline-block; border: 2px solid #ededed; box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);"></div>`;
     }
 
     ChangeState(state) {
