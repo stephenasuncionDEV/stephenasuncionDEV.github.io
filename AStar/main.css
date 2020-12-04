@@ -208,7 +208,7 @@ footer a:visited {
     margin-right: auto;
     cursor: pointer;
     transition: transform .2s;
-    font-size: 6pt;
+    font-size: 8pt;
 }
 
 #grid:hover {
@@ -311,6 +311,29 @@ input[type="range"]::-ms-fill-upper {
 
 input[type="range"]::-ms-fill-lower {
     background-color: #666;
+}
+
+.h {
+    margin: 0;
+    float: left;
+    margin-top: 2px;
+    margin-left: 3px;
+    color: rgb(124, 53, 53);
+}
+
+.g {
+    margin: 0;
+    float: right;
+    margin-top: 2px;
+    margin-right: 4px;
+    color: rgb(124, 53, 53);
+}
+
+.f {
+    clear: both;
+    padding-top: 2px;
+    text-align: center;
+    color: rgb(124, 53, 53);
 }
 
 @media only screen and (max-width: 1200px) {

@@ -289,7 +289,7 @@ function AStar() {
 
         //Get Lowest Heuristic
         for (let n = 0; n < openSet.length; n++) {
-            setNodeText(openSet[n].column, openSet[n].row, `H: ${openSet[n].h} F: ${openSet[n].f} ..`);
+            setNodeText(openSet[n].column, openSet[n].row, `<h6 class="h">${openSet[n].h}</h6><h6 class="g">${openSet[n].g}</h6><h5 class="f">${openSet[n].f}</h5>`);
 
             cleanOpenAndClose();
 
