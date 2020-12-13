@@ -1,0 +1,10 @@
+{
+    "newegg": [
+        {
+            "ryzen5600": "https://www.newegg.ca/amd-ryzen-5-5600x/p/N82E16819113666",
+            "ryzen5800": "https://www.newegg.ca/amd-ryzen-7-5800x/p/N82E16819113665",
+            "ryzen5900": "https://www.newegg.ca/amd-ryzen-9-5900x/p/N82E16819113664",
+            "ryzen5950": "https://www.newegg.ca/amd-ryzen-9-5950x/p/N82E16819113663"
+        }
+    ]
+}
